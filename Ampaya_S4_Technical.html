@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese Restaurant Guide</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <div class="header">
+        <h1 class="restaurant-name">リジュスポット</h1>
+        <h2 class="restaurant-guide">JAPANESE RESTAURANT GUIDE</h2>
+        <h3 class="produced-by">Produced by: LOCAL MAGAZINE</h3>
+    </div>
+
+    <button class="main-menu" onclick="closePopup()">MAIN MENU</button>
+
+    <div class="container">
+        <div class="restaurant-card" onclick="openPopup('SUSHI', 'sushi2.jpg', '1-1 Chuo, Fukui City, Fukui Prefecture', 'Sushi', '10AM - 11PM', '$$', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.')">
+            <div class="card-title">SUSHI</div>
+            <img src="sushi1.jpg" alt="Sushi">
+            <div class="hover-info">Fresh and delicately crafted sushi with authentic flavors.<br>Press for More Info</div>
+        </div>
+
+        <div class="restaurant-card" onclick="openPopup('YAKITORI', 'Yakitori2.jpg', '1-1 Chuo, Fukui City, Fukui Prefecture', 'Grilled', '10AM - 11PM', '$$', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.')">
+            <div class="card-title">YAKITORI</div>
+            <img src="Yakitori1.jpg" alt="Yakitori">
+            <div class="hover-info">Authentic Japanese ramen with deep flavors.<br>Press for More Info</div>
+        </div>
+
+        <div class="restaurant-card" onclick="openPopup('SUKIYAKI', 'Sukiyaki2.jpg', '1-1 Chuo, Fukui City, Fukui Prefecture', 'Hot Pot', '10AM - 11PM', '$$$', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.')">
+            <div class="card-title">SUKIYAKI</div>
+            <img src="Sukiyaki1.jpg" alt="Sukiyaki">
+            <div class="hover-info">Rich and authentic hot pot prepared with care.<br>Press for More Info</div>
+        </div>
+
+        <div class="restaurant-card" onclick="openPopup('GYOZA', 'Gyoza2.jpg', '1-1 Chuo, Fukui City, Fukui Prefecture', 'Fried', '10AM - 11PM', '$$', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.')">
+            <div class="card-title">GYOZA</div>
+            <img src="Gyoza1.jpg" alt="Gyoza">
+            <div class="hover-info">Crispy, juicy dumplings crafted to perfection.<br>Press for More Info</div>
+        </div>
+    </div>
+
+    <div id="popup" class="popup">
+        <img id="popup-img" src="" alt="Restaurant Image">
+        <div class="popup-text">
+            <h2 id="popup-title"></h2>
+            <div class="popup-info">
+                <p id="popup-address"></p>
+                <p><strong>Category:</strong> <span id="popup-category"></span></p>
+                <p><strong>Open:</strong> <span id="popup-hours"></span></p>
+                <p><strong>Price:</strong> <span id="popup-price"></span></p>
+            </div>
+            <p id="popup-details"></p>
+        </div>
+    </div>
+
+    <script>
+        function openPopup(title, imgSrc, address, category, hours, price, details) {
+            const popup = document.getElementById("popup");
+            
+            document.getElementById("popup-title").innerText = title;
+            document.getElementById("popup-img").src = imgSrc;
+            document.getElementById("popup-address").innerText = address;
+            document.getElementById("popup-category").innerText = category;
+            document.getElementById("popup-hours").innerText = hours;
+            document.getElementById("popup-price").innerText = price;
+            document.getElementById("popup-details").innerText = details;
+
+            popup.style.display = "flex";
+            setTimeout(() => popup.classList.add("active"), 10);
+        }
+
+        function closePopup() {
+            const popup = document.getElementById("popup");
+            
+            popup.classList.remove("active");
+
+            setTimeout(() => (popup.style.display = "none"), 300);
+        }
+    </script>
+
+</body>
+</html>
